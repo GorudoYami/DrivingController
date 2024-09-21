@@ -98,6 +98,17 @@ public class TcpClientService : ITcpClientService, IDisposable, IAsyncDisposable
 		return await _mainServerReaderWriter!.ReadMessageAsync(cancellationToken);
 	}
 
+	public async Task<byte[]> ReadVideoAsync(CancellationToken cancellationToken = default) {
+		AssertVideoConnected();
+		return await _videoServerReaderWriter!.ReadMessageAsync(cancellationToken);
+	}
+
+	private void AssertVideoConnected() {
+		if (_videoServer?.Connected != true) {
+			throw new InvalidOperationException("Not connected to a video server");
+		}
+	}
+
 	private void AssertConnected() {
 		if (_mainServer?.Connected != true) {
 			throw new InvalidOperationException("Not connected to a server");

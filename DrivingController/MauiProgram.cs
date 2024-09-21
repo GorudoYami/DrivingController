@@ -15,9 +15,11 @@ public static class MauiProgram {
 			.ConfigureFonts(fonts => {
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+				fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIconsRegular");
 			});
 
 		builder.Services.AddSingleton<ITcpClientService, TcpClientService>();
+		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddOptions<TcpClientServiceOptions>();
 
 #if DEBUG

@@ -1,11 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="DrivingController.MainPage"
-			 Loaded="ContentPage_Loaded">
+			 x:Class="DrivingController.MainPage">
 	<StackLayout>
-		<Image x:Name="image"/>
+		<Image x:Name="cameraPreview"/>
+		<StackLayout Orientation="Horizontal">
+			<Label VerticalTextAlignment="Center" Text="Camera" HorizontalOptions="CenterAndExpand"/>
+			<Switch x:Name="swCamera" HorizontalOptions="CenterAndExpand"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label VerticalTextAlignment="Center" Text="Safety" HorizontalOptions="CenterAndExpand"/>
+			<Switch x:Name="swSafety" IsToggled="True" HorizontalOptions="CenterAndExpand"/>
+		</StackLayout>
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
@@ -19,10 +26,11 @@
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
 
-			<ImageButton Grid.Column="1" Grid.Row="0" />
-			<ImageButton Grid.Column="0" Grid.Row="1" />
-			<ImageButton Grid.Column="2" Grid.Row="1" />
-			<ImageButton Grid.Column="1" Grid.Row="2" />
+			<Button x:Name="buttonLeft" HorizontalOptions="End" WidthRequest="64" HeightRequest="64" Grid.Column="0" Grid.Row="1" Text="arrow_back" FontFamily="MaterialIconsRegular"/>
+			<Button x:Name="buttonRight" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" Grid.Column="2" Grid.Row="1" Text="arrow_forward" FontFamily="MaterialIconsRegular"/>
+			<Button x:Name="buttonBackward" WidthRequest="64" HeightRequest="64" Grid.Column="1" Grid.Row="2" Text="arrow_downward" FontFamily="MaterialIconsRegular"/>
+			<Button x:Name="buttonForward" WidthRequest="64" HeightRequest="64" Grid.Column="1" Grid.Row="0" Text="arrow_upward" FontFamily="MaterialIconsRegular"/>
+			<Button x:Name="buttonStop" WidthRequest="64" HeightRequest="64" Grid.Column="1" Grid.Row="1" Text="close" FontFamily="MaterialIconsRegular"/>
 		</Grid>
 	</StackLayout>
 </ContentPage>
